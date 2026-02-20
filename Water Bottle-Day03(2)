@@ -1,0 +1,14 @@
+//Water Bottle
+int numWaterBottles(int numBottles, int numExchange) {
+    int total = numBottles;
+    int remBottle;
+
+    while (numBottles >= numExchange) {
+        int newBottles = numBottles / numExchange;
+         int remBottle=numBottles % numExchange;
+        total =total+ newBottles;
+        numBottles = newBottles + remBottle;
+    }
+
+    return total;
+}
