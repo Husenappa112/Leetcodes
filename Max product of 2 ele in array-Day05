@@ -1,0 +1,18 @@
+//Maximum product of two elements in an Array
+int maxProduct(int *num,int n)
+{
+    int a=0,b=0;
+    
+    for(int i=0;i<n;i++){
+       if(num[i]>a)
+        {
+        b=a;
+        a=num[i];
+         }
+    else if(num[i]>b){
+        b=num[i];
+    }
+  }  
+  return (a-1)*(b-1);
+
+}
