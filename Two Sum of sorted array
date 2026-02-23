@@ -1,0 +1,27 @@
+//Two sum of an input array sorted
+int* twoSum(int* numbers, int n, int target, int* returnSize) {
+    
+    int* ans = (int*)malloc(2 * sizeof(int));
+    *returnSize = 2;
+
+    int start = 0;
+    int end = n - 1;
+
+    while (start < end) {
+        int sum = numbers[start] + numbers[end];
+
+        if (sum == target) {
+            ans[0] = start + 1;   // 1-based index
+            ans[1] = end + 1;
+            return ans;
+        }
+        else if (sum < target) {
+            start++;
+        }
+        else {
+            end--;
+        }
+    }
+
+    return ans;  
+}
