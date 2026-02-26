@@ -1,0 +1,59 @@
+Add binary String
+#include <string.h>
+#include <stdlib.h>
+
+char* addBinary(char* a, char* b){
+
+    int lenA = strlen(a);
+    int lenB = strlen(b);
+
+    int i = lenA - 1;
+    int j = lenB - 1;
+
+    int carry = 0;
+    int sum;
+    int k = 0;
+
+    /* allocate required memory */
+    int max = (lenA > lenB) ? lenA : lenB;
+    char *res = (char*)malloc(max + 2);
+
+    while(i >= 0 || j >= 0 || carry){
+
+        int bin_a = 0;
+        int bin_b = 0;
+
+        if(i >= 0){
+            bin_a = a[i] - '0';
+            i--;
+        }
+
+        if(j >= 0){
+            bin_b = b[j] - '0';
+            j--;
+        }
+
+        sum = bin_a + bin_b + carry;
+
+        res[k] = (sum % 2) + '0';
+        k++;
+
+        carry = sum / 2;
+    }
+
+    res[k] = '\0';
+
+    /* reverse result */
+    int l = 0;
+    int r = k - 1;
+
+    while(l < r){
+        char temp = res[l];
+        res[l] = res[r];
+        res[r] = temp;
+        l++;
+        r--;
+    }
+
+    return res;
+}
