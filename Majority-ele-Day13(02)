@@ -1,0 +1,21 @@
+//Majority(Repeated) element compared to numsSize/2
+int majorityElement(int* nums, int numsSize)
+{
+    int i, j, count;
+for(i = 0; i < numsSize; i++)
+    {
+        count = 1; 
+        for(j = i + 1; j < numsSize; j++)
+        {
+            if(nums[i] == nums[j])
+            {
+                count++;
+            }
+        }
+        if(count > numsSize / 2)
+        {
+            return nums[i];
+        }
+    }
+    return -1;   
+}
