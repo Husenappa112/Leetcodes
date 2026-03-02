@@ -1,0 +1,7 @@
+Square root of x
+#include<stdio.h>
+int mySqrt(int x) {
+    double res;
+ res=sqrt(x);  
+ return res;  
+}
