@@ -1,0 +1,16 @@
+//Largest odd number in string else returning empty string
+#include <string.h>
+char* largestOddNumber(char* num) 
+{
+    int n = strlen(num);
+  for(int i = n - 1; i >= 0; i--)
+    {
+      // Convert character to digit and check odd
+        if((num[i] - '0') % 2 != 0)
+        {
+            num[i + 1] = '\0';   /
+            return num;
+        }
+    }
+return "";
+}
