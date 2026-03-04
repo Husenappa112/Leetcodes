@@ -1,0 +1,11 @@
+// Count no of nodes in complete tree
+ 
+int countNodes(struct TreeNode* root) {
+    int count =0;
+  if(root==NULL)
+  return 0;
+    
+
+  return 1+countNodes(root->left)+countNodes(root->right);
+  
+}
