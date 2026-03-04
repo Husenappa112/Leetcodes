@@ -1,0 +1,31 @@
+//Minmum distance between BST Nodes
+void inorder(struct TreeNode* node, int arr[], int *i)
+{
+    if(node == NULL)
+        return;
+
+    inorder(node->left, arr, i);
+
+    arr[*i] = node->val;
+    (*i)++;
+
+    inorder(node->right, arr, i);
+}
+
+int minDiffInBST(struct TreeNode* root) {
+
+    int a[500];
+    int i = 0;
+    int min = INT_MAX;
+
+    inorder(root, a, &i);
+
+    for(int j = 0; j < i - 1; j++)
+    {
+        int diff = a[j+1] - a[j];
+        if(diff < min)
+            min = diff;
+    }
+
+    return min;
+}
