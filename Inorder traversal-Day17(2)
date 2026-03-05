@@ -1,0 +1,29 @@
+//Binary Tree inorder traversal
+#include <stdlib.h>
+
+int idx = 0;
+
+void inorder(struct TreeNode* root, int arr[])
+{
+    if(root == NULL)
+        return;
+
+    inorder(root->left, arr);
+
+    arr[idx++] = root->val;
+
+    inorder(root->right, arr);
+}
+
+int* inorderTraversal(struct TreeNode* root, int* returnSize)
+{
+    int *result = (int*)malloc(sizeof(int) * 100);
+
+    idx = 0;
+
+    inorder(root, result);
+
+    *returnSize = idx;
+
+    return result;
+}
