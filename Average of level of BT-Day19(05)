@@ -1,0 +1,32 @@
+//Average of levels in binary tree
+void add(struct TreeNode* root, int level, double* sum, int* count){
+    if(root == NULL || level >= 1000)
+        return;
+
+    sum[level] += root->val;
+    count[level]++;
+
+    add(root->left, level+1, sum, count);
+    add(root->right, level+1, sum, count);
+}
+
+double* averageOfLevels(struct TreeNode* root, int* returnSize){
+
+    double sum[1000] = {0};
+    int count[1000] = {0};
+
+    add(root, 0, sum, count);
+
+    int i = 0;
+    while(i < 1000 && count[i] != 0)
+        i++;
+
+    *returnSize = i;
+
+    double* ans = malloc(i * sizeof(double));
+
+    for(int j = 0; j < i; j++)
+        ans[j] = sum[j] / count[j];
+
+    return ans;
+}
