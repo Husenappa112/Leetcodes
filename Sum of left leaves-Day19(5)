@@ -1,0 +1,11 @@
+//Sum of left leaves
+int sumOfLeftLeaves(struct TreeNode* root) {
+    if(root == NULL)
+        return 0;
+   int sum = 0;
+  if(root->left != NULL && root->left->left == NULL && root->left->right == NULL)
+        sum += root->left->val;
+    sum =sum+ sumOfLeftLeaves(root->left);
+    sum = sum+sumOfLeftLeaves(root->right);
+ return sum;
+}
