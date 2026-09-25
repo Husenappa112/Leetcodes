@@ -1,0 +1,23 @@
+Your task is to remove all digits by doing this operation repeatedly:
+
+Delete the first digit and the closest non-digit character to its left.
+Return the resulting string after removing all digits.
+
+class Solution {
+    public String clearDigits(String s) {
+      char chars[]=s.toCharArray();
+       StringBuilder sb=new StringBuilder();
+       for(int i=0;i<chars.length;i++){
+        char ch=chars[i];
+        if(Character.isDigit(ch)){
+            if(s.length()>0)
+          sb.deleteCharAt(sb.length()-1);
+        
+         }
+         else{
+            sb.append(ch);
+         }
+          }
+        return sb.toString();
+    }
+}
